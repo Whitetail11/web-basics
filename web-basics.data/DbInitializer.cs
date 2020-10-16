@@ -13,6 +13,17 @@ namespace web_basics.data
 
             if (context.Cats.Any())
             {
+                if (context.Dogs.Any())
+                {
+                    return;
+                }
+                context.Dogs.AddRange(new Entities.Dog[] {
+                new Entities.Dog() { Name = "Dog1", Age = 4 },
+                new Entities.Dog() { Name = "Dog2", Age = 6 },
+                new Entities.Dog() { Name = "Dog3", Age = 7 },
+                new Entities.Dog() { Name = "Dog4", Age = 9 }
+            });
+                context.SaveChanges();
                 return;
             }
 

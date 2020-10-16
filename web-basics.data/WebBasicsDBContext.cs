@@ -22,6 +22,7 @@ namespace web_basics.data
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
 
+        public DbSet<Dog> Dogs { get; set; }
         public DbSet<Cat> Cats { get; set; }
     }
 }
