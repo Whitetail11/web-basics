@@ -20,6 +20,9 @@ export class NavMenuComponent {
   public get isLoggedId(): boolean {
     return this.as.isAuthenticated();
   }
+  public get isAdmin(): boolean {
+    return this.as.getUserRole() == 'Admin';
+  }
 
   constructor(
     private as: AuthService

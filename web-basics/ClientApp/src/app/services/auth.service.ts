@@ -40,4 +40,16 @@ export class AuthService {
     localStorage.removeItem(ACCESS_TOKEN_KEY);
     this.router.navigate[''];
   }
+
+  getUserRole(): string {
+    if (!this.isAuthenticated()) {
+      return "";
+    }
+    return this.decodeToken().role;
+  }
+
+  decodeToken() {
+    const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+    return this.jwtHelper.decodeToken(token);
+  }
 }

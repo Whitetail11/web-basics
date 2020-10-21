@@ -21,5 +21,21 @@ namespace web_basics.data.Repositories
             var accounts = context.Accounts.ToList();
             return accounts;
         }
+        public void Delete(int id)
+        {
+            var account = context.Accounts.FirstOrDefault(m => m.Id == id);
+            context.Accounts.Remove(account);
+            context.SaveChanges();
+        }
+        public void Update(Entities.Account account)
+        {
+            context.Accounts.Update(account);
+            context.SaveChanges();
+        }
+        public void Create(Entities.Account account)
+        {
+            context.Accounts.Add(account);
+            context.SaveChanges();
+        }
     }
 }

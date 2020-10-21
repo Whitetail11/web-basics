@@ -1,0 +1,26 @@
+<p *ngIf="!users"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td><button (click)="deleteUser(user.id)">delete</button></td>
+      <td><button (click)="changeRole(user)">change role</button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="createUser" *ngIf="users">
+  <button (click)="createUser()">Add User</button>
+  <input [(ngModel)]="userEmail" placeholder="email" />
+  <input [(ngModel)]="userRole" placeholder="role" />
+  <input [(ngModel)]="userPassword" placeholder="password" />
+</div>
